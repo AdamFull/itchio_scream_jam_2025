@@ -1,45 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8241013690356192394
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70d335ddfaff71d4493ab520ae36643e, type: 3}
-  m_Name: TonemapperVolume
-  m_EditorClassIdentifier: 
-  active: 1
-  isEnabled:
-    m_OverrideState: 1
-    m_Value: 1
-  contrast:
-    m_OverrideState: 1
-    m_Value: 0.7
-  shoulder:
-    m_OverrideState: 1
-    m_Value: 0.25
-  graypointIn:
-    m_OverrideState: 1
-    m_Value: 0.8
-  graypointOut:
-    m_OverrideState: 1
-    m_Value: 0.2
-  whitepoint:
-    m_OverrideState: 0
-    m_Value: 10
-  crossTalk:
-    m_OverrideState: 0
-    m_Value: 0.394
-  saturation:
-    m_OverrideState: 0
-    m_Value: 0
-  crossTalkSaturation:
-    m_OverrideState: 0
-    m_Value: 0.039
 --- !u!114 &-8022123297705654667
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -94,16 +54,16 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   fogFalloffMode:
-    m_OverrideState: 1
-    m_Value: 1
-  blendMode:
     m_OverrideState: 0
     m_Value: 0
+  blendMode:
+    m_OverrideState: 0
+    m_Value: 3
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 0.78431374}
+    m_Value: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 0.49803922}
   precisionAlpha:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   precisionAlphaDitherTexture:
     m_OverrideState: 0
@@ -114,13 +74,13 @@ MonoBehaviour:
     m_Value: 1
   distanceMin:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 0
   distanceMax:
     m_OverrideState: 1
-    m_Value: 20
+    m_Value: 40
   fogFalloffCurve:
-    m_OverrideState: 1
-    m_Value: -0.3
+    m_OverrideState: 0
+    m_Value: 0
   heightFalloffEnabled:
     m_OverrideState: 0
     m_Value: 0
@@ -197,15 +157,15 @@ MonoBehaviour:
     m_Value: 1
   bakedLightingMultiplier:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.05
   vertexColorLightingMultiplier:
     m_OverrideState: 1
     m_Value: 0
   dynamicLightingMultiplier:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 5
   dynamicLightsMaxCount:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 256
   dynamicLightsMaxPerObjectCount:
     m_OverrideState: 1
@@ -343,7 +303,7 @@ MonoBehaviour:
   components:
   - {fileID: -1642360821901703547}
   - {fileID: -7066527964746508704}
-  - {fileID: -8241013690356192394}
+  - {fileID: 6077340637740554617}
   - {fileID: 5198985724782529642}
   - {fileID: -8022123297705654667}
   - {fileID: -6978779405786836935}
@@ -424,6 +384,46 @@ MonoBehaviour:
   tiledLayersSkyScrollRotationLayer1:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &6077340637740554617
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d335ddfaff71d4493ab520ae36643e, type: 3}
+  m_Name: TonemapperVolume
+  m_EditorClassIdentifier: 
+  active: 1
+  isEnabled:
+    m_OverrideState: 1
+    m_Value: 1
+  contrast:
+    m_OverrideState: 1
+    m_Value: 0.7
+  shoulder:
+    m_OverrideState: 0
+    m_Value: 0.5
+  graypointIn:
+    m_OverrideState: 1
+    m_Value: 0.3
+  graypointOut:
+    m_OverrideState: 0
+    m_Value: 0.18
+  whitepoint:
+    m_OverrideState: 0
+    m_Value: 10
+  crossTalk:
+    m_OverrideState: 0
+    m_Value: 0.394
+  saturation:
+    m_OverrideState: 0
+    m_Value: 0
+  crossTalkSaturation:
+    m_OverrideState: 0
+    m_Value: 0.039
 --- !u!114 &7088129216601614679
 MonoBehaviour:
   m_ObjectHideFlags: 3
