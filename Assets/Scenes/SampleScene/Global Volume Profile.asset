@@ -94,14 +94,14 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   fogFalloffMode:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   blendMode:
     m_OverrideState: 0
     m_Value: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.6179246, g: 0.6179246, b: 0.6179246, a: 1}
+    m_Value: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 0.78431374}
   precisionAlpha:
     m_OverrideState: 0
     m_Value: 1
@@ -114,13 +114,13 @@ MonoBehaviour:
     m_Value: 1
   distanceMin:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 3
   distanceMax:
     m_OverrideState: 1
-    m_Value: 100
+    m_Value: 30
   fogFalloffCurve:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: -0.3
   heightFalloffEnabled:
     m_OverrideState: 0
     m_Value: 0
