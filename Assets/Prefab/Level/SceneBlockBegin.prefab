@@ -4124,6 +4124,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 517507936763347525}
     m_Modifications:
+    - target: {fileID: 1408161302979014863, guid: 3e36fc3459eec184fbeebbe0591486ee,
+        type: 3}
+      propertyPath: useShuffle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408161302979014863, guid: 3e36fc3459eec184fbeebbe0591486ee,
+        type: 3}
+      propertyPath: volumeRange
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408161302979014863, guid: 3e36fc3459eec184fbeebbe0591486ee,
+        type: 3}
+      propertyPath: triggerChance
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408161302979014863, guid: 3e36fc3459eec184fbeebbe0591486ee,
+        type: 3}
+      propertyPath: soundEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408161302979014863, guid: 3e36fc3459eec184fbeebbe0591486ee,
+        type: 3}
+      propertyPath: soundEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f5a4d55c0048762489b07be642f02688, type: 3}
     - target: {fileID: 3085424768027490453, guid: 3e36fc3459eec184fbeebbe0591486ee,
         type: 3}
       propertyPath: m_LocalPosition.x
