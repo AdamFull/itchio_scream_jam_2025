@@ -56,7 +56,7 @@ public class SoundTrigger : MonoBehaviour
             return;
         }
 
-        float effectVolume = Random.Range(volumeRange, 1f);
+        float effectVolume = Random.Range(0f, volumeRange);
 
         if (soundEffects.Count == 1)
         {
