@@ -61,7 +61,7 @@ MonoBehaviour:
     m_Value: 3
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 0.49803922}
+    m_Value: {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 0.49803922}
   precisionAlpha:
     m_OverrideState: 1
     m_Value: 1
@@ -271,7 +271,7 @@ MonoBehaviour:
     m_Value: 0
   drawDistance:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 25
 --- !u!114 &-1642360821901703547
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -401,13 +401,13 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   contrast:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.7
   shoulder:
     m_OverrideState: 0
     m_Value: 0.5
   graypointIn:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.3
   graypointOut:
     m_OverrideState: 0
