@@ -310,7 +310,12 @@ PrefabInstance:
     - target: {fileID: 7505707427498749778, guid: e470ec77bb6b0b8478a157e405d52315,
         type: 3}
       propertyPath: stepDistance
-      value: 2
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505707427498749778, guid: e470ec77bb6b0b8478a157e405d52315,
+        type: 3}
+      propertyPath: reshuffleFoodsteps
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7815810512915595229, guid: e470ec77bb6b0b8478a157e405d52315,
         type: 3}

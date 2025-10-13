@@ -33,6 +33,7 @@ public class DoomLikeCharacterController : MonoBehaviour
     public AudioSource footstepAudioSource;
     [Tooltip("Distance player needs to travel before playing next footstep")]
     public float stepDistance = 2f;
+    public bool reshuffleFoodsteps = false;
 
     private CharacterController controller;
     private Vector3 moveDirection = Vector3.zero;
@@ -244,19 +245,19 @@ public class DoomLikeCharacterController : MonoBehaviour
         if (footstepSounds.Count == 0)
             return;
 
-        if (currentFootstepIndex >= shuffledFootsteps.Count)
+        if (reshuffleFoodsteps && currentFootstepIndex >= shuffledFootsteps.Count)
         {
             ShuffleFootsteps();
         }
 
-        // Pick a random footstep sound
-        int randomIndex = Random.Range(0, footstepSounds.Count);
-        AudioClip footstepClip = footstepSounds[randomIndex];
+        AudioClip footstepClip = footstepSounds[currentFootstepIndex];
 
         if (footstepClip != null)
         {
             float randomVolume = Random.Range(0.1f, 0.3f);
             footstepAudioSource.PlayOneShot(footstepClip, randomVolume);
         }
+
+        currentFootstepIndex = (currentFootstepIndex + 1) % shuffledFootsteps.Count;
     }
 }
