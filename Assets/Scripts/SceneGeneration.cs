@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class SceneGeneration : MonoBehaviour
 {
-    [Header("Player Settings")]
-    [Tooltip("The character transform to follow")]
-    public Transform playerTransform;
-
     [Header("Block Prefabs")]
     [Tooltip("The block that appears at the start of the level")]
     public GameObject startBlock;
@@ -41,6 +37,7 @@ public class SceneGeneration : MonoBehaviour
     [Tooltip("Number of blocks to generate ahead of the player")]
     public int blocksToGenerateAhead = 3;
 
+    private Transform playerTransform;
     private Queue<GameObject> activeBlocks = new Queue<GameObject>();
     private List<GameObject> remainingSpecialBlocks = new List<GameObject>();
     private float nextBlockPosition = 0f;
@@ -60,6 +57,8 @@ public class SceneGeneration : MonoBehaviour
     void Initialize()
     {
         if (isInitialized) return;
+
+        playerTransform = GameManager.instance.characterInstance.transform;
 
         // Copy special blocks to remaining list
         remainingSpecialBlocks = new List<GameObject>(specialBlocks);
