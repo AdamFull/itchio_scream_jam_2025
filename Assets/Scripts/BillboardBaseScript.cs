@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class BillboardBaseScript : MonoBehaviour
 {
-    [Header("Billboard Settings")]
-    [Tooltip("The camera to face towards. If null, uses main camera.")]
-    public Camera targetCamera;
-
     [Header("Discrete Step Settings")]
     [Tooltip("Number of discrete rotation steps (e.g., 8 means 8 directions: 45° apart)")]
     [Range(4, 16)]
@@ -18,26 +14,21 @@ public class BillboardBaseScript : MonoBehaviour
     public bool lockY = false;
     public bool lockZ = true;
 
+    private Transform targetTransform;
     private float angleStep;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (targetCamera == null)
-        {
-            targetCamera = Camera.main;
-        }
-
+        targetTransform = GameManager.instance.characterInstance.transform;
         angleStep = 360f / (float)numberOfSteps;
     }
 
     void LateUpdate()
     {
-        if (targetCamera == null) return;
+        if (targetTransform == null) return;
 
-        //transform.LookAt(targetCamera.transform.position, Vector3.up);
-
-        Vector3 directionToCamera = targetCamera.transform.position - transform.position;
+        Vector3 directionToCamera = targetTransform.position - transform.position;
         float angleToCamera = Mathf.Atan2(directionToCamera.x, directionToCamera.z) * Mathf.Rad2Deg;
         float snappedAngle = Mathf.Round(angleToCamera / angleStep) * angleStep;
         
