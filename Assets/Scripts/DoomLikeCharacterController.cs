@@ -28,9 +28,22 @@ public class DoomLikeCharacterController : MonoBehaviour
     [Header("Audio")]
     public AudioSource audioSource;
 
+    [Header("Footstep Sounds")]
+    public List<AudioClip> footstepSounds = new List<AudioClip>();
+    public AudioSource footstepAudioSource;
+    [Tooltip("Distance player needs to travel before playing next footstep")]
+    public float stepDistance = 2f;
+    public bool reshuffleFoodsteps = false;
+
     private CharacterController controller;
     private Vector3 moveDirection = Vector3.zero;
     private float verticalVelocity = 0f;
+    private float distanceTraveled = 0f;
+    private Vector3 lastPosition;
+
+    // Needed additional shuffling, because without it footsteps sounds shitty
+    private List<AudioClip> shuffledFootsteps = new List<AudioClip>();
+    private int currentFootstepIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -42,10 +55,24 @@ public class DoomLikeCharacterController : MonoBehaviour
             cameraTransform = GetComponentInChildren<Camera>().transform;
         }
 
-        if(audioSource == null)
+        if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
         }
+
+        if (footstepAudioSource == null)
+        {
+            GameObject footstepObj = new GameObject("FootstepAudioSource");
+            footstepObj.transform.SetParent(transform);
+            footstepObj.transform.localPosition = Vector3.zero;
+            footstepAudioSource = footstepObj.AddComponent<AudioSource>();
+            footstepAudioSource.spatialBlend = 0f;
+            footstepAudioSource.playOnAwake = false;
+        }
+
+        ShuffleFootsteps();
+
+        lastPosition = transform.position;
 
         // Show cursor since we're not using mouse look
         Cursor.lockState = CursorLockMode.None;
@@ -58,6 +85,7 @@ public class DoomLikeCharacterController : MonoBehaviour
         HandleFlashlight();
         HandleRotation();
         HandleMovement();
+        HandleFootsteps();
     }
 
     void HandleFlashlight()
@@ -73,11 +101,11 @@ public class DoomLikeCharacterController : MonoBehaviour
         }
 
         //
-        if(flashlightKeyDown)
+        if (flashlightKeyDown)
         {
             audioSource.clip = wasEnabled ? flashlightPhaseOffBegin : flashlightPhaseOnBegin;
         }
-        if(flashlightKeyUp)
+        if (flashlightKeyUp)
         {
             audioSource.clip = wasEnabled ? flashlightPhaseOffEnd : flashlightPhaseOnEnd;
         }
@@ -138,5 +166,71 @@ public class DoomLikeCharacterController : MonoBehaviour
 
         // Move the controller
         controller.Move(moveDirection * Time.deltaTime);
+    }
+
+    void HandleFootsteps()
+    {
+        // Only play footsteps if grounded and moving
+        if (!controller.isGrounded || footstepSounds.Count == 0)
+        {
+            return;
+        }
+
+        Vector3 currentPosition = transform.position;
+        Vector3 horizontalMovement = currentPosition - lastPosition;
+        horizontalMovement.y = 0f;
+
+        float frameDist = horizontalMovement.magnitude;
+
+        if (frameDist > 0.001f)
+        {
+            distanceTraveled += frameDist;
+
+            if (distanceTraveled >= stepDistance)
+            {
+                PlayRandomFootstep();
+                distanceTraveled = 0f;
+            }
+        }
+
+        lastPosition = currentPosition;
+    }
+
+    void ShuffleFootsteps()
+    {
+        if (footstepSounds.Count == 0)
+            return;
+
+        AudioClip lastPlayed = null;
+        if (shuffledFootsteps.Count > 0 && currentFootstepIndex > 0)
+        {
+            lastPlayed = shuffledFootsteps[currentFootstepIndex - 1];
+        }
+
+        shuffledFootsteps = ShuffleUtility.SpotifyShuffle(footstepSounds, lastPlayed);
+
+        // Reset index to start of new shuffle
+        currentFootstepIndex = 0;
+    }
+
+    void PlayRandomFootstep()
+    {
+        if (footstepSounds.Count == 0)
+            return;
+
+        if (reshuffleFoodsteps && currentFootstepIndex >= shuffledFootsteps.Count)
+        {
+            ShuffleFootsteps();
+        }
+
+        AudioClip footstepClip = footstepSounds[currentFootstepIndex];
+
+        if (footstepClip != null)
+        {
+            float randomVolume = Random.Range(0.1f, 0.3f);
+            footstepAudioSource.PlayOneShot(footstepClip, randomVolume);
+        }
+
+        currentFootstepIndex = (currentFootstepIndex + 1) % shuffledFootsteps.Count;
     }
 }
