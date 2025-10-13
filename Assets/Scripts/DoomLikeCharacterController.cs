@@ -207,34 +207,7 @@ public class DoomLikeCharacterController : MonoBehaviour
             lastPlayed = shuffledFootsteps[currentFootstepIndex - 1];
         }
 
-        shuffledFootsteps = new List<AudioClip>(footstepSounds);
-
-        // Fisher-Yates shuffle algorithm
-        // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-        for (int i = shuffledFootsteps.Count - 1; i > 0; i--)
-        {
-            int randomIndex = Random.Range(0, i + 1);
-            AudioClip temp = shuffledFootsteps[i];
-            shuffledFootsteps[i] = shuffledFootsteps[randomIndex];
-            shuffledFootsteps[randomIndex] = temp;
-        }
-
-        // Spotify-style trick: if the first sound in new shuffle matches the last played,
-        if (lastPlayed != null && shuffledFootsteps.Count > 1 && shuffledFootsteps[0] == lastPlayed)
-        {
-            // Find a different sound to swap with
-            for (int i = 1; i < shuffledFootsteps.Count; i++)
-            {
-                if (shuffledFootsteps[i] != lastPlayed)
-                {
-                    // Swap first element with this one
-                    AudioClip temp = shuffledFootsteps[0];
-                    shuffledFootsteps[0] = shuffledFootsteps[i];
-                    shuffledFootsteps[i] = temp;
-                    break;
-                }
-            }
-        }
+        shuffledFootsteps = ShuffleUtility.SpotifyShuffle(footstepSounds, lastPlayed);
 
         // Reset index to start of new shuffle
         currentFootstepIndex = 0;
