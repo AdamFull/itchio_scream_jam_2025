@@ -215,7 +215,7 @@ MonoBehaviour:
   playerTransform: {fileID: 940126385}
   startBlock: {fileID: 2405983233851995365, guid: eb2e83c2efb0bd74cb931c41a73fb0d8,
     type: 3}
-  endBlock: {fileID: 5154326142297316576, guid: 07c2abdc9cd469e45a88085869381df2,
+  endBlock: {fileID: 4944987463861487269, guid: 29f3eec096cbfb043844effaf9ac38d0,
     type: 3}
   commonBlocks:
   - {fileID: 5154326142297316576, guid: 07c2abdc9cd469e45a88085869381df2, type: 3}
@@ -223,14 +223,12 @@ MonoBehaviour:
   - {fileID: 5154326142297316576, guid: 1c085e1e65ec3dd41aea05fa23fdbdb0, type: 3}
   specialBlocks:
   - {fileID: 9021175514201080233, guid: 379072fb8637ef74a802f2c8e852289a, type: 3}
-  - {fileID: 9021175514201080233, guid: 379072fb8637ef74a802f2c8e852289a, type: 3}
-  - {fileID: 9021175514201080233, guid: 379072fb8637ef74a802f2c8e852289a, type: 3}
   blockSpacing: 32
-  commonBlockInterval: 5
-  specialBlockProbability: 0.5
-  blocksAfterSpecials: 5
-  blocksToKeepBehind: 3
-  blocksToGenerateAhead: 3
+  commonBlockInterval: 3
+  specialBlockProbability: 0.8
+  blocksAfterSpecials: 3
+  blocksToKeepBehind: 2
+  blocksToGenerateAhead: 2
 --- !u!4 &1814711516
 Transform:
   m_ObjectHideFlags: 0
