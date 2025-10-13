@@ -307,6 +307,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 7505707427498749778, guid: e470ec77bb6b0b8478a157e405d52315,
+        type: 3}
+      propertyPath: stepDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7815810512915595229, guid: e470ec77bb6b0b8478a157e405d52315,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
