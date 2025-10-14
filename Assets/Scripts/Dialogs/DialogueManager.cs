@@ -11,16 +11,15 @@ namespace Dialogs
 {
     public class DialogueManager : SingletonMonoBehaviour<DialogueManager>
     {
-        [Header("Систменое")]
-        [Tooltip("Ключ менеджера джиалогов для проверки")]
+        [Header("Систменое")] [Tooltip("Ключ менеджера джиалогов для проверки")]
         public string DialogueManagerKey = string.Empty;
-        
-        [Header("Диалоги персонажей")]
-        [Tooltip("Записываем все диалоги для персонажей")]
-        [SerializeField] public SerializedDictionary<string, DialogueList> characterDialogues = new();
-        
-        [Header("Необходимые ресурсы для диалогов")]
-        [SerializeField] private GameObject dialoguePanel;
+
+        [Header("Диалоги персонажей")] [Tooltip("Записываем все диалоги для персонажей")] [SerializeField]
+        public SerializedDictionary<string, DialogueList> characterDialogues = new();
+
+        [Header("Необходимые ресурсы для диалогов")] [SerializeField]
+        private GameObject dialoguePanel;
+
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private GameObject choiceMenu;
         private VerticalLayoutGroup choiceMenuGroup;
@@ -41,12 +40,15 @@ namespace Dialogs
 
         public void StratDialogue(string dialogueKey)
         {
+            Debug.Log("Пробуем начать диалог: " + dialogueKey);
             if (characterDialogues.TryGetValue(dialogueKey, out var dialogueList))
             {
+                Debug.Log("Начинаем диалог: " + dialogueKey);
+
                 SetDialogueList(dialogueList);
             }
         }
-        
+
         /// <summary>
         /// Записываем в очередь диалогов и вызываем первый диалог
         /// </summary>

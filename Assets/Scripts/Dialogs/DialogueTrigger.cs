@@ -6,7 +6,8 @@ namespace Dialogs
     public class DialogueTrigger : MonoBehaviour
     {
         private DialogueManager dialogueManager;
-
+        private bool dialogueTriggered = false;
+        
         [SerializeField] private string KeyDialogue = string.Empty;
         private void Start()
         {
@@ -16,9 +17,10 @@ namespace Dialogs
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Player")
+            if (other.tag == "Player" && !dialogueTriggered)
             {
                 dialogueManager.StratDialogue(KeyDialogue);
+                dialogueTriggered = true;
             }
         }
     }
