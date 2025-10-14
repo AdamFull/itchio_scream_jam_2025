@@ -112,13 +112,11 @@ public class AmbientConductor : MonoBehaviour
     private bool isInitialized = false;
 
     // TODO: May be init from game manager?
-    void Awake()
-    {
-        InitializeAudioGroups();
-    }
 
     void Start()
     {
+        InitializeAudioGroups();
+
         if (playOnAwake)
         {
             StartAllGroups();
@@ -262,10 +260,6 @@ public class AmbientConductor : MonoBehaviour
     private IEnumerator AudioGroupCoroutine(AudioGroup group)
     {
         group.isPlaying = true;
-
-        // TODO: May be not needed 
-        float initialDelay = group.GetRandomInterval();
-        yield return new WaitForSeconds(initialDelay);
 
         while (group.isPlaying)
         {
