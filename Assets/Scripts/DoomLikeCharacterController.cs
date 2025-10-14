@@ -30,7 +30,6 @@ public class DoomLikeCharacterController : MonoBehaviour
 
     [Header("Footstep Sounds")]
     public List<AudioClip> footstepSounds = new List<AudioClip>();
-    public AudioSource footstepAudioSource;
     [Tooltip("Distance player needs to travel before playing next footstep")]
     public float stepDistance = 2f;
     public bool reshuffleFoodsteps = false;
@@ -60,15 +59,15 @@ public class DoomLikeCharacterController : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
         }
 
-        if (footstepAudioSource == null)
-        {
-            GameObject footstepObj = new GameObject("FootstepAudioSource");
-            footstepObj.transform.SetParent(transform);
-            footstepObj.transform.localPosition = Vector3.zero;
-            footstepAudioSource = footstepObj.AddComponent<AudioSource>();
-            footstepAudioSource.spatialBlend = 0f;
-            footstepAudioSource.playOnAwake = false;
-        }
+        //if (footstepAudioSource == null)
+        //{
+        //    GameObject footstepObj = new GameObject("FootstepAudioSource");
+        //    footstepObj.transform.SetParent(transform);
+        //    footstepObj.transform.localPosition = Vector3.zero;
+        //    footstepAudioSource = footstepObj.AddComponent<AudioSource>();
+        //    footstepAudioSource.spatialBlend = 0f;
+        //    footstepAudioSource.playOnAwake = false;
+        //}
 
         ShuffleFootsteps();
 
@@ -100,19 +99,14 @@ public class DoomLikeCharacterController : MonoBehaviour
             flashlightSource.enabled = !flashlightSource.enabled;
         }
 
-        //
+        // Play sound effect depends on current flashlight state
         if (flashlightKeyDown)
         {
-            audioSource.clip = wasEnabled ? flashlightPhaseOffBegin : flashlightPhaseOnBegin;
+            audioSource.PlayOneShot(wasEnabled ? flashlightPhaseOffBegin : flashlightPhaseOnBegin);
         }
         if (flashlightKeyUp)
         {
-            audioSource.clip = wasEnabled ? flashlightPhaseOffEnd : flashlightPhaseOnEnd;
-        }
-
-        if (flashlightKeyDown || flashlightKeyUp)
-        {
-            audioSource.Play();
+            audioSource.PlayOneShot(wasEnabled ? flashlightPhaseOffEnd : flashlightPhaseOnEnd);
         }
     }
 
@@ -228,7 +222,7 @@ public class DoomLikeCharacterController : MonoBehaviour
         if (footstepClip != null)
         {
             float randomVolume = Random.Range(0.1f, 0.3f);
-            footstepAudioSource.PlayOneShot(footstepClip, randomVolume);
+            audioSource.PlayOneShot(footstepClip, randomVolume);
         }
 
         currentFootstepIndex = (currentFootstepIndex + 1) % shuffledFootsteps.Count;
