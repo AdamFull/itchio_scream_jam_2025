@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("General")]
     [SerializeField]
     private GameObject characterPrefab;
 
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     private Vector3 characterSpawnPoint = Vector3.zero;
     public static GameManager instance { get; private set; }
 
+    [HideInInspector]
     public GameObject characterInstance { get; private set; }
 
     private void Awake()
@@ -23,7 +25,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            //InitializeSystems();
         }
     }
 
@@ -33,6 +34,5 @@ public class GameManager : MonoBehaviour
         characterInstance = Instantiate(characterPrefab);
         characterInstance.transform.position = characterSpawnPoint;
         characterInstance.SetActive(true);
-        //newCharacter.transform.SetParent(transform);
     }
 }
