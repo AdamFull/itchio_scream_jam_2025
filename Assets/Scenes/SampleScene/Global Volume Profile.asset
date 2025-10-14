@@ -24,10 +24,10 @@ MonoBehaviour:
     m_Value: 0
   targetRasterizationResolutionWidth:
     m_OverrideState: 1
-    m_Value: 928
+    m_Value: 384
   targetRasterizationResolutionHeight:
     m_OverrideState: 1
-    m_Value: 328
+    m_Value: 360
   isDepthBufferEnabled:
     m_OverrideState: 0
     m_Value: 1
@@ -54,8 +54,8 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   fogFalloffMode:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 2
   blendMode:
     m_OverrideState: 0
     m_Value: 3
@@ -63,21 +63,21 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 0.49803922}
   precisionAlpha:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
   precisionAlphaDitherTexture:
     m_OverrideState: 0
     m_Value: {fileID: 2800000, guid: 4a3e96c03e7d7c34a8fb8f59764f1945, type: 3}
     dimension: 1
   precisionAlphaDither:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   distanceMin:
     m_OverrideState: 1
     m_Value: 0
   distanceMax:
     m_OverrideState: 1
-    m_Value: 40
+    m_Value: 15
   fogFalloffCurve:
     m_OverrideState: 0
     m_Value: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
     m_Value: 0
   drawDistance:
     m_OverrideState: 1
-    m_Value: 25
+    m_Value: 50
 --- !u!114 &-1642360821901703547
 MonoBehaviour:
   m_ObjectHideFlags: 3
