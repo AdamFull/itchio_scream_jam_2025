@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerChance: 1
+  soundEffects: []
+  volumeRange: 1
+  useShuffle: 1
 --- !u!82 &3314168376400421742
 AudioSource:
   m_ObjectHideFlags: 0
