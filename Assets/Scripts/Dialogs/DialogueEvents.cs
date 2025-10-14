@@ -1,4 +1,5 @@
-﻿using Commons;
+﻿using System;
+using Commons;
 using UnityEngine;
 
 namespace Dialogs
@@ -7,6 +8,11 @@ namespace Dialogs
     {
         private DialogueManager dialogueManager;
 
+
+        private void Start()
+        {
+            dialogueManager = DialogueManager.Instance;
+        }
 
         public void ShowDialogue(DialogueList dialogueList)
         {

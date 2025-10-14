@@ -1,9 +1,8 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using Commons;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +13,9 @@ namespace Dialogs
         [Header("Систменое")] [Tooltip("Ключ менеджера джиалогов для проверки")]
         public string DialogueManagerKey = string.Empty;
 
+        [Tooltip("Скорость печати текста")]
+        public float SpeedTyping = 0.2f;
+        
         [Header("Диалоги персонажей")] [Tooltip("Записываем все диалоги для персонажей")] [SerializeField]
         public SerializedDictionary<string, DialogueList> characterDialogues = new();
 
@@ -87,11 +89,35 @@ namespace Dialogs
         private void ShowDialogue(Dialogue dialogue)
         {
             dialoguePanel.SetActive(true);
-            dialogueText.SetText(dialogue.Text);
+            dialogueText.maxVisibleCharacters = 0;
+            dialogueText.text = (dialogue.Text);
+            StartCoroutine(TextVisible());
             CreateButtonChoice(dialogue.AnswerСhoice);
             BindMenu();
         }
 
+        /// <summary>
+        /// Печать текста по буквам
+        /// </summary>
+        private IEnumerator TextVisible()
+        {
+            int totalVisibleCharacters = dialogueText.text.Length;
+            int counter = 0; 
+
+            while (true)
+            {
+                int visibleCount = counter % (totalVisibleCharacters + 1);
+                dialogueText.maxVisibleCharacters = visibleCount;
+                if (visibleCount >= totalVisibleCharacters || Input.GetKeyDown(KeyCode.Space))
+                {
+                    dialogueText.maxVisibleCharacters = totalVisibleCharacters;
+                    break;
+                }
+                counter++;
+                yield return new WaitForSeconds(SpeedTyping);
+            }
+        }
+        
         /// <summary>
         /// Заполняем меню выбора
         /// </summary>
