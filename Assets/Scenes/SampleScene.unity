@@ -948,10 +948,45 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 3e1a0b5ee3608c144b54903da67c2133, type: 3}
     - {fileID: 8300000, guid: cba54bd12c18207478b97349b76d2f9a, type: 3}
     - {fileID: 8300000, guid: 59189b2a84ced1840ba5ec2ac0cc6acf, type: 3}
-    minVolume: 0.2
-    maxVolume: 0.5
+    minVolume: 0.1
+    maxVolume: 0.4
     minTimeInterval: 10
     maxTimeInterval: 15
+    waitUntilDone: 1
+    useShuffle: 1
+    loop: 0
+    spatialBlend: 0
+    audioSource: {fileID: 0}
+    isPlaying: 0
+  - groupName: Other
+    mixerChannel: Ambient
+    audioClips:
+    - {fileID: 8300000, guid: 8cd9e9c079feef74fa0dcb70eaaf4c31, type: 3}
+    - {fileID: 8300000, guid: 3a4e37ae6c043134082f1ba044290957, type: 3}
+    - {fileID: 8300000, guid: 75ab6f43e63eba44391bd219f054d1e8, type: 3}
+    minVolume: 0.1
+    maxVolume: 0.3
+    minTimeInterval: 30
+    maxTimeInterval: 60
+    waitUntilDone: 1
+    useShuffle: 1
+    loop: 0
+    spatialBlend: 0
+    audioSource: {fileID: 0}
+    isPlaying: 0
+  - groupName: Birds
+    mixerChannel: Ambient
+    audioClips:
+    - {fileID: 8300000, guid: bc51c2f9670c2b24799afe55a558478a, type: 3}
+    - {fileID: 8300000, guid: 86d482588f3b3f44fa9b26d11d2962a6, type: 3}
+    - {fileID: 8300000, guid: f4afef6be7d7b434fbf43bb8ee6eb940, type: 3}
+    - {fileID: 8300000, guid: cc118f3b1d5b165449950acc6554c79b, type: 3}
+    - {fileID: 8300000, guid: d67b80aebe3aaaf45895827e9de88a02, type: 3}
+    - {fileID: 8300000, guid: c60d5f54f584d4546ae5393c3a93367d, type: 3}
+    minVolume: 0.1
+    maxVolume: 0.3
+    minTimeInterval: 30
+    maxTimeInterval: 90
     waitUntilDone: 1
     useShuffle: 1
     loop: 0
