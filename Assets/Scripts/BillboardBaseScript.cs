@@ -5,7 +5,7 @@ using UnityEngine;
 public class BillboardBaseScript : MonoBehaviour
 {
     [Header("Discrete Step Settings")]
-    [Tooltip("Number of discrete rotation steps (e.g., 8 means 8 directions: 45° apart)")]
+    [Tooltip("Number of discrete rotation steps (e.g., 8 means 8 directions: 45ï¿½ apart)")]
     [Range(4, 16)]
     public int numberOfSteps = 8;
 
@@ -23,7 +23,7 @@ public class BillboardBaseScript : MonoBehaviour
         targetTransform = GameManager.instance.characterInstance.transform;
         angleStep = 360f / (float)numberOfSteps;
     }
-
+    
     void LateUpdate()
     {
         if (targetTransform == null) return;

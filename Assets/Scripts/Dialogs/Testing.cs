@@ -7,6 +7,7 @@ namespace Dialogs
     {
         private DialogueEvents dialogueEvents;
         public DialogueList dialogueList;
+        public GameObject testCreateCharacter; 
         private void Start()
         {
             dialogueEvents = DialogueEvents.Instance;
@@ -17,7 +18,8 @@ namespace Dialogs
             // Будто попали в тригер
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                dialogueEvents.ShowDialogue(dialogueList);
+                // dialogueEvents.ShowDialogue(dialogueList);
+                Instantiate(testCreateCharacter);
             }
         }
     }

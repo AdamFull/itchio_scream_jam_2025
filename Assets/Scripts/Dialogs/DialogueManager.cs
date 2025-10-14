@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using Commons;
 using TMPro;
 using Unity.VisualScripting;
@@ -10,6 +11,15 @@ namespace Dialogs
 {
     public class DialogueManager : SingletonMonoBehaviour<DialogueManager>
     {
+        [Header("Систменое")]
+        [Tooltip("Ключ менеджера джиалогов для проверки")]
+        public string DialogueManagerKey = string.Empty;
+        
+        [Header("Диалоги персонажей")]
+        [Tooltip("Записываем все диалоги для персонажей")]
+        [SerializeField] public SerializedDictionary<string, DialogueList> characterDialogues = new();
+        
+        [Header("Необходимые ресурсы для диалогов")]
         [SerializeField] private GameObject dialoguePanel;
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private GameObject choiceMenu;
@@ -29,6 +39,14 @@ namespace Dialogs
             }
         }
 
+        public void StratDialogue(string dialogueKey)
+        {
+            if (characterDialogues.TryGetValue(dialogueKey, out var dialogueList))
+            {
+                SetDialogueList(dialogueList);
+            }
+        }
+        
         /// <summary>
         /// Записываем в очередь диалогов и вызываем первый диалог
         /// </summary>

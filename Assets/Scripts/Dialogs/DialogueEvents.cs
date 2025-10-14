@@ -5,7 +5,7 @@ namespace Dialogs
 {
     public class DialogueEvents : SingletonMonoBehaviour<DialogueEvents>
     {
-        public DialogueManager dialogueManager;
+        private DialogueManager dialogueManager;
 
 
         public void ShowDialogue(DialogueList dialogueList)
