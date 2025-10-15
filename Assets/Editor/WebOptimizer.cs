@@ -36,6 +36,6 @@ public class WebOptimizer : MonoBehaviour
         //PlayerSettings.WebGL.wasm2023 = true;
 
         // Set Platform Settings to optimize for disk size (LTO)
-        UnityEditor.WebGL.UserBuildSettings.codeOptimization = UnityEditor.WebGL.WasmCodeOptimization.DiskSizeLTO;
+        // UnityEditor.WebGL.UserBuildSettings.codeOptimization = UnityEditor.WebGL.WasmCodeOptimization.DiskSizeLTO;
     }
 }

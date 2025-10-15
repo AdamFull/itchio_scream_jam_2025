@@ -1442,6 +1442,32 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 928510202}
     m_Modifications:
+    - target: {fileID: 3626078577140887146, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011691046701916220, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3327c11e998b11f4f8a3b71d57b83087,
+        type: 2}
+    - target: {fileID: 4011691046701916220, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325554258886013055, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325554258886013055, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5229796455613372649, guid: e91d2bd3c8867f94497b87426950d5a1,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1542,10 +1568,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5428187152598781828, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_ChildAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5620658213165141546, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5620658213165141546, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6454064733251180481, guid: e91d2bd3c8867f94497b87426950d5a1,
         type: 3}
       propertyPath: m_Name
       value: DialogiuePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6454064733251180481, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194696331565383169, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194696331565383169, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194696331565383169, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000342435773088757, guid: e91d2bd3c8867f94497b87426950d5a1,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -729.45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

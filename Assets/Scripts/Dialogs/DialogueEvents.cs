@@ -35,7 +35,7 @@ namespace Dialogs
         /// <summary>
         /// Допустим умер
         /// </summary>
-        public void EventDiePlayer(string keyDialogyeNegative)
+        public void EventDiePlayer(string keyDialogueNegative)
         {
             Debug.Log("Игрок умер");
             CloseDialogue();
