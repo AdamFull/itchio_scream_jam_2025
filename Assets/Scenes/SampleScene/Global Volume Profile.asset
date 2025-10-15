@@ -271,7 +271,7 @@ MonoBehaviour:
     m_Value: 0
   drawDistance:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 60
 --- !u!114 &-1642360821901703547
 MonoBehaviour:
   m_ObjectHideFlags: 3
