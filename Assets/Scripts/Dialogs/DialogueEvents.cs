@@ -14,36 +14,45 @@ namespace Dialogs
             dialogueManager = DialogueManager.Instance;
         }
 
-        public void ShowDialogue(DialogueList dialogueList)
-        {
-            dialogueManager.SetDialogueList(dialogueList);
-        }
-        
         /// <summary>
         /// Включаем следующий диалог с НПС
         /// </summary>
         public void NextReplica()
         {
+            StopPlayerMove();
             dialogueManager.NextDialogue();
         }
-        
+
         /// <summary>
         /// Закрываем диалог с НПС
         /// </summary>
         public void CloseDialogue()
         {
+            StartPlayerMove();
             dialogueManager.CloseDialogue();
-        }   
-        
+        }
+
         /// <summary>
         /// Допустим умер
         /// </summary>
-        public void EventDiePlayer()
+        public void EventDiePlayer(string keyDialogyeNegative)
         {
             Debug.Log("Игрок умер");
             CloseDialogue();
         }
-
-
+        
+        /// <summary>
+        /// Обнуляем движение игрока
+        /// </summary>
+        public void StopPlayerMove()
+        {
+        }
+        
+        /// <summary>
+        /// Возвращаем движение игрока
+        /// </summary>
+        public void StartPlayerMove()
+        {
+        }
     }
 }

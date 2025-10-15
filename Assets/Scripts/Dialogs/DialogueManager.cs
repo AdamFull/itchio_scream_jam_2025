@@ -13,9 +13,8 @@ namespace Dialogs
         [Header("Систменое")] [Tooltip("Ключ менеджера джиалогов для проверки")]
         public string DialogueManagerKey = string.Empty;
 
-        [Tooltip("Скорость печати текста")]
-        public float SpeedTyping = 0.2f;
-        
+        [Tooltip("Скорость печати текста")] public float SpeedTyping = 0.2f;
+
         [Header("Диалоги персонажей")] [Tooltip("Записываем все диалоги для персонажей")] [SerializeField]
         public SerializedDictionary<string, DialogueList> characterDialogues = new();
 
@@ -26,11 +25,13 @@ namespace Dialogs
         [SerializeField] private GameObject choiceMenu;
         private VerticalLayoutGroup choiceMenuGroup;
         [SerializeField] public Button buttonChoicePrefab;
-
+        [SerializeField] public ScrollRect scrollRect;
         private List<Button> buttonAction = new();
 
         private Queue<Dialogue> dialoguesQueue = new();
 
+        private DialoguesDataBase dialoguesDataBase = new();
+        private Coroutine myCoroutine;
         private void Start()
         {
             choiceMenuGroup = choiceMenu.GetComponentInChildren<VerticalLayoutGroup>();
@@ -60,10 +61,12 @@ namespace Dialogs
             NextDialogue();
         }
 
-        private void AddDialogueInQueue(DialogueList dialogueList)
+        private void AddDialogueInQueue(DialogueList dialogueListKey)
         {
-            foreach (Dialogue dialogue in dialogueList.dialogues)
+            foreach (Dialogue dialogue in dialogueListKey.dialogues)
             {
+                if (dialoguesDataBase.dialogues.TryGetValue(dialogue.KeyDB, out var textMeshProUGUI)) ;
+                dialogue.TextMeshPro = textMeshProUGUI;
                 dialoguesQueue.Enqueue(dialogue);
             }
         }
@@ -73,6 +76,11 @@ namespace Dialogs
         /// </summary>
         public void NextDialogue()
         {
+            if (myCoroutine != null)
+            {
+                StopCoroutine(myCoroutine);
+                Debug.Log("Корутина остановлена по ссылке");
+            }
             Dialogue dialogue;
             if (dialoguesQueue.TryDequeue(out dialogue))
             {
@@ -88,8 +96,8 @@ namespace Dialogs
         {
             dialoguePanel.SetActive(true);
             dialogueText.maxVisibleCharacters = 0;
-            dialogueText.text = (dialogue.Text);
-            StartCoroutine(TextVisible());
+            dialogueText.text = (dialogue.TextMeshPro.text);
+            myCoroutine = StartCoroutine(TextVisible());
             CreateButtonChoice(dialogue.AnswerСhoice);
             BindMenu();
         }
@@ -100,22 +108,34 @@ namespace Dialogs
         private IEnumerator TextVisible()
         {
             int totalVisibleCharacters = dialogueText.text.Length;
-            int counter = 0; 
+            int counter = 0;
+            float stepScroll = 1f / (totalVisibleCharacters / 90f);
+            float scrolLine = 1f;
+            int stepSrolled = 1;
 
             while (true)
             {
                 int visibleCount = counter % (totalVisibleCharacters + 1);
                 dialogueText.maxVisibleCharacters = visibleCount;
+
+                if (scrollRect != null && (visibleCount / 90f) > (2 + stepSrolled))
+                {
+                    scrolLine -= stepScroll;
+                    scrollRect.verticalNormalizedPosition = scrolLine;
+                    stepSrolled++;
+                }
+
                 if (visibleCount >= totalVisibleCharacters || Input.GetKeyDown(KeyCode.Space))
                 {
                     dialogueText.maxVisibleCharacters = totalVisibleCharacters;
                     break;
                 }
+
                 counter++;
                 yield return new WaitForSeconds(SpeedTyping);
             }
         }
-        
+
         /// <summary>
         /// Заполняем меню выбора
         /// </summary>
@@ -185,5 +205,6 @@ namespace Dialogs
         {
             dialoguePanel.SetActive(false);
         }
+
     }
 }

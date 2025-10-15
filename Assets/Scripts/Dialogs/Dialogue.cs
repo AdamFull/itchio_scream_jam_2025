@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Dialogs
 {
     [System.Serializable]
     public class Dialogue
     {
-        public string NameNPC = string.Empty;
-        public string Text = string.Empty;
+        [FormerlySerializedAs("Text")] public string KeyDB = string.Empty;
+        [HideInInspector] public TextMeshProUGUI TextMeshPro = new TextMeshProUGUI();
         public List<DialogueAnswerChoice> AnswerСhoice = new();
     }
     [System.Serializable]

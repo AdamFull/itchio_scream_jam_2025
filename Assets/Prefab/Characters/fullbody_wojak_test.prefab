@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2100686710065947173}
   - component: {fileID: 8302705691215249215}
+  - component: {fileID: 5975121876073181657}
   m_Layer: 0
   m_Name: fullbody_wojak_test
   m_TagString: Untagged
@@ -84,3 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5975121876073181657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226372213352098207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bef0e215d973aa48b3191919a395ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfSteps: 8
+  lockX: 1
+  lockY: 0
+  lockZ: 1
