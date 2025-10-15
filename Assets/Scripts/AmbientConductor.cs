@@ -261,6 +261,12 @@ public class AmbientConductor : MonoBehaviour
     {
         group.isPlaying = true;
 
+        float initialDelay = group.maxTimeInterval;
+        if (initialDelay > 0f)
+        {
+            yield return new WaitForSeconds(initialDelay);
+        }
+
         while (group.isPlaying)
         {
             AudioClip clip = group.GetNextClip();
