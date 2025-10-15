@@ -66,8 +66,6 @@ namespace Dialogs
             {
                 dialoguesQueue.Enqueue(dialogue);
             }
-
-            Debug.Log("Dialogs count:" + dialoguesQueue.Count);
         }
 
         /// <summary>
