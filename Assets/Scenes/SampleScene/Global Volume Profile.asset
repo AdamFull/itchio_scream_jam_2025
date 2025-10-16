@@ -77,7 +77,7 @@ MonoBehaviour:
     m_Value: 0
   distanceMax:
     m_OverrideState: 1
-    m_Value: 15
+    m_Value: 35
   fogFalloffCurve:
     m_OverrideState: 0
     m_Value: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73811fdb48dddb143add2662b3aba7bf, type: 3}
   m_Name: TerrainGrassVolume
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   textureFilterMode:
     m_OverrideState: 1
     m_Value: 0
@@ -241,13 +241,13 @@ MonoBehaviour:
     m_Value: 1
   geometry:
     m_OverrideState: 1
-    m_Value: 0.75
+    m_Value: 0.95
   geometryPushbackEnabled:
     m_OverrideState: 0
     m_Value: 0
   geometryPushbackMinMax:
     m_OverrideState: 0
-    m_Value: {x: 0, y: 1}
+    m_Value: {x: 0, y: 0}
   color:
     m_OverrideState: 1
     m_Value: 0.7
@@ -255,20 +255,20 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0.33333334
   alpha:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   affineTextureWarping:
     m_OverrideState: 0
     m_Value: 1
   framebufferDither:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 1
   ditherSize:
     m_OverrideState: 0
     m_Value: 1
   drawDistanceFalloffMode:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 1
   drawDistance:
     m_OverrideState: 1
     m_Value: 60
