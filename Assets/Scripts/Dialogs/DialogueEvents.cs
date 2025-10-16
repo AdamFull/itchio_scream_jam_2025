@@ -19,7 +19,7 @@ namespace Dialogs
         /// </summary>
         public void NextReplica()
         {
-            StopPlayerMove();
+            StopPlayerMove(null);
             dialogueManager.NextDialogue();
         }
 
@@ -44,8 +44,15 @@ namespace Dialogs
         /// <summary>
         /// Обнуляем движение игрока
         /// </summary>
-        public void StopPlayerMove()
+        public void StopPlayerMove(Transform dialogueInitiator)
         {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                DoomLikeCharacterController controller = playerObj.GetComponent<DoomLikeCharacterController>();
+                controller.SetBlockAllInput(true);
+                controller.LockOnTarget(dialogueInitiator);
+            }
         }
         
         /// <summary>
@@ -53,6 +60,13 @@ namespace Dialogs
         /// </summary>
         public void StartPlayerMove()
         {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                DoomLikeCharacterController controller = playerObj.GetComponent<DoomLikeCharacterController>();
+                controller.SetBlockAllInput(false);
+                controller.UnlockTarget();
+            }
         }
     }
 }

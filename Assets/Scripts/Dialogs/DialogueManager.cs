@@ -41,12 +41,14 @@ namespace Dialogs
             }
         }
 
-        public void StratDialogue(string dialogueKey)
+        public void StratDialogue(string dialogueKey, Transform dialogueInitiator)
         {
             Debug.Log("Пробуем начать диалог: " + dialogueKey);
             if (characterDialogues.TryGetValue(dialogueKey, out var dialogueList))
             {
                 Debug.Log("Начинаем диалог: " + dialogueKey);
+
+                DialogueEvents.Instance.StopPlayerMove(dialogueInitiator);
 
                 SetDialogueList(dialogueList);
             }

@@ -9,6 +9,7 @@ namespace Dialogs
         private bool dialogueTriggered = false;
         
         [SerializeField] private string KeyDialogue = string.Empty;
+        [SerializeField] private Transform dialogueInitiator;
         private void Start()
         {
             dialogueManager = DialogueManager.Instance;
@@ -19,7 +20,7 @@ namespace Dialogs
         {
             if (other.tag == "Player" && !dialogueTriggered)
             {
-                dialogueManager.StratDialogue(KeyDialogue);
+                dialogueManager.StratDialogue(KeyDialogue, dialogueInitiator);
                 dialogueTriggered = true;
             }
         }

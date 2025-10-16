@@ -9031,6 +9031,11 @@ PrefabInstance:
       propertyPath: KeyDialogue
       value: mailman
       objectReference: {fileID: 0}
+    - target: {fileID: 5131075950079560193, guid: 7a5bdbbda1db76f4d8163e3d34b9d6da,
+        type: 3}
+      propertyPath: dialogueInitiator
+      value: 
+      objectReference: {fileID: 7827339053713764297}
     - target: {fileID: 6955195014116504194, guid: 7a5bdbbda1db76f4d8163e3d34b9d6da,
         type: 3}
       propertyPath: m_LocalPosition.x

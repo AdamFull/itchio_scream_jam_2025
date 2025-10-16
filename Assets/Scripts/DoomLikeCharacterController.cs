@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
@@ -44,6 +45,11 @@ public class DoomLikeCharacterController : MonoBehaviour
     private List<AudioClip> shuffledFootsteps = new List<AudioClip>();
     private int currentFootstepIndex = 0;
 
+    private bool blockAllInput = false;
+    private bool isRotatingToTarget = false;
+    private Quaternion targetRotation;
+    private Quaternion initialRotation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,10 +87,59 @@ public class DoomLikeCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HandleLockOnTarget();
+
+        if (blockAllInput)
+        {
+            return;
+        }
+
         HandleFlashlight();
         HandleRotation();
         HandleMovement();
         HandleFootsteps();
+    }
+
+    public void SetBlockAllInput(bool value)
+    {
+        blockAllInput = value;
+    }
+
+    public void LockOnTarget(Transform target)
+    {
+        if (!target) return;
+
+        Vector3 direction = target.position - cameraTransform.position;
+        if (direction != Vector3.zero)
+        {
+            initialRotation = cameraTransform.rotation;
+            targetRotation = Quaternion.LookRotation(direction);
+            isRotatingToTarget = true;
+        }
+    }
+
+    public void UnlockTarget()
+    {
+        isRotatingToTarget = true;
+        targetRotation = initialRotation;
+    }
+
+    void HandleLockOnTarget()
+    {
+        if (!isRotatingToTarget) return;
+
+        cameraTransform.rotation = Quaternion.Slerp(
+            cameraTransform.rotation,
+            targetRotation,
+            2f * Time.deltaTime
+        );
+
+        float angle = Quaternion.Angle(cameraTransform.rotation, targetRotation);
+        if (angle < 0.1f)
+        {
+            cameraTransform.rotation = targetRotation;
+            isRotatingToTarget = false;
+        }
     }
 
     void HandleFlashlight()
