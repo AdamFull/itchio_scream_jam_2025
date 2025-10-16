@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using Commons;
 using TMPro;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Dialogs
 {
-    public class DialogueManager : SingletonMonoBehaviour<DialogueManager>
+    public class DialogueManager : MonoBehaviour
     {
         [Header("Систменое")] [Tooltip("Ключ менеджера джиалогов для проверки")]
         public string DialogueManagerKey = string.Empty;
@@ -89,7 +90,11 @@ namespace Dialogs
             {
                 Debug.Log("Начинаем диалог: " + dialogueKey);
 
-                DialogueEvents.Instance.StopPlayerMove(dialogueInitiator);
+                DialogueEvents dialogue_events = GetComponentInChildren<DialogueEvents>();
+                if (dialogue_events != null)
+                {
+                    dialogue_events.StopPlayerMove(dialogueInitiator);
+                }
 
                 SetDialogueList(dialogueList);
             }

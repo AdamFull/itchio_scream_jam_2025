@@ -12,7 +12,7 @@ namespace Dialogs
         [SerializeField] private Transform dialogueInitiator;
         private void Start()
         {
-            dialogueManager = DialogueManager.Instance;
+            dialogueManager = FindFirstObjectByType<DialogueManager>();
             Debug.Log($"Получен диалог менеджер : {dialogueManager.DialogueManagerKey}");
         }
 

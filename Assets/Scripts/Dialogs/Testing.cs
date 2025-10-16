@@ -5,13 +5,8 @@ namespace Dialogs
 {
     public class Testing : MonoBehaviour
     {
-        private DialogueEvents dialogueEvents;
         public DialogueList dialogueList;
-        public GameObject testCreateCharacter; 
-        private void Start()
-        {
-            dialogueEvents = DialogueEvents.Instance;
-        }
+        public GameObject testCreateCharacter;
 
         private void Update()
         {

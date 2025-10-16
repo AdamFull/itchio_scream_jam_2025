@@ -117,15 +117,15 @@ namespace Dialogs
         private static TextMeshProUGUI ShoeSeller_Positive = new ()
         {
             text =
-                "To my surprise, we actually had a pretty good time! The kid was sharp for his age — reminded me a bit of my younger brother." +
-                " When he finally got bored, he just wandered off like nothing had happened. Feeling oddly uplifted, I went on my way."
+                "I just nodded and hurried around the stranger. Sure, a new pair of shoes would’ve been nice," +
+                " but this guy looked far too suspicious."
         };
 
         private static TextMeshProUGUI ShoeSeller_Negative = new ()
         {
-            text = "I instinctively took a step back until my heel caught on a root creeping across the ground." +
-                   " I lost my balance and crashed down hard, the back of my head slamming into the cold, damp soil. " +
-                   "Warm blood pooled beneath me, spreading fast. The last thing I heard was the child’s quiet sobbing."
+            text = "Deciding I should take them while I could, I eagerly extended my foot. Within seconds… a " +
+                   "sharp, burning pain shot through me. A huge bear trap had clamped onto my ankle, and I " +
+                   "lost consciousness instantly."
         };
 
         #endregion Shoe Seller

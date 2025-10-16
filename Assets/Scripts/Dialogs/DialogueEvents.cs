@@ -4,15 +4,9 @@ using UnityEngine;
 
 namespace Dialogs
 {
-    public class DialogueEvents : SingletonMonoBehaviour<DialogueEvents>
+    public class DialogueEvents : MonoBehaviour
     {
-        private DialogueManager dialogueManager;
-
-
-        private void Start()
-        {
-            dialogueManager = DialogueManager.Instance;
-        }
+        public DialogueManager dialogueManager;
 
         /// <summary>
         /// Включаем следующий диалог с НПС
