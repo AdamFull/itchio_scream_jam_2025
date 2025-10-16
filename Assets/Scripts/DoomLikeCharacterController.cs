@@ -167,6 +167,8 @@ public class DoomLikeCharacterController : MonoBehaviour
 
     void HandleRotation()
     {
+        if (isRotatingToTarget) return;
+
         // Rotate player left/right with A and D keys
         // TODO: Make key bindngs in project settings or use input mapper package
         float rotationInput = 0f;
@@ -174,12 +176,10 @@ public class DoomLikeCharacterController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             rotationInput = -1f;
-            isRotatingToTarget = false;
         }
         else if (Input.GetKey(KeyCode.D))
         {
             rotationInput = 1f;
-            isRotatingToTarget = false;
         }
 
         // Apply rotation
