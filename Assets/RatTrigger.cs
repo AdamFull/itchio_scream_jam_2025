@@ -37,7 +37,7 @@ public class RatTrigger : MonoBehaviour
         if (childObject != null)
         {
             childObject.gameObject.SetActive(false);
-            childObject.localPosition = startPoint.position;
+            childObject.localPosition = startPoint.localPosition;
         }
         else
         {
@@ -72,9 +72,9 @@ public class RatTrigger : MonoBehaviour
     private void ActivateEffect()
     {
         childObject.gameObject.SetActive(true);
-        childObject.localPosition = startPoint.position;
+        childObject.localPosition = startPoint.localPosition;
 
-        float distance = Vector3.Distance(startPoint.position, endPoint.position);
+        float distance = Vector3.Distance(startPoint.localPosition, endPoint.localPosition);
         travelTime = distance / moveSpeed;
 
         isMoving = true;
@@ -94,11 +94,11 @@ public class RatTrigger : MonoBehaviour
         {
             childObject.localPosition = Vector3.MoveTowards(
                 childObject.localPosition,
-                endPoint.position,
+                endPoint.localPosition,
                 moveSpeed * Time.deltaTime
             );
 
-            if (Vector3.Distance(childObject.localPosition, endPoint.position) < 0.01f)
+            if (Vector3.Distance(childObject.localPosition, endPoint.localPosition) < 0.01f)
             {
                 isMoving = false;
             }
