@@ -31,6 +31,8 @@ namespace Dialogs
 
         private Queue<Dialogue> dialoguesQueue = new();
 
+        private Transform bufferDialogueInitiator;
+        
         private DialoguesDataBase dialoguesDataBase = new();
         private Coroutine myCoroutine;
         private bool isTyping = false;
@@ -43,8 +45,16 @@ namespace Dialogs
             }
         }
 
+        public void StartEndingDialogue(string dialogueKey)
+        {
+            Debug.Log("DialogueManager: StartEndingDialogue");
+            StratDialogue(dialogueKey, bufferDialogueInitiator);
+        }
+        
         public void StratDialogue(string dialogueKey, Transform dialogueInitiator)
         {
+            dialoguesQueue.Clear();
+            bufferDialogueInitiator = dialogueInitiator;
             Debug.Log("Пробуем начать диалог: " + dialogueKey);
             if (characterDialogues.TryGetValue(dialogueKey, out var dialogueList))
             {
@@ -72,6 +82,7 @@ namespace Dialogs
                 if (dialoguesDataBase.dialogues.TryGetValue(dialogue.KeyDB, out var textMeshProUGUI)) ;
                 dialogue.TextMeshPro = textMeshProUGUI;
                 dialoguesQueue.Enqueue(dialogue);
+                Debug.Log(textMeshProUGUI.text);
             }
         }
 

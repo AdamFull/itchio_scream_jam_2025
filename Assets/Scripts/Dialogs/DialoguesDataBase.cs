@@ -41,7 +41,7 @@ namespace Dialogs
         private static TextMeshProUGUI EndDialogue = new ()
         {
             text = 
-                "“Finally, an exit!”" +
+                "<color=green>“Finally, an exit!”</color>" +
                 "\nI paused a moment at the cemetery gates to catch my breath. I don’t know why, but I had the feeling I’d walked the edge countless times." +
                 "\nYeah… that was quite a walk — I’m never going through this cemetery again.\n"
         };
@@ -192,8 +192,9 @@ namespace Dialogs
         private static TextMeshProUGUI TrafficOfficer_Main = new ()
         {
             text = 
-                "At the very edge of the road, perched on a pedestal as if placed there on purpose, sat a cat. " +
-                "Thin, scruffy, obviously homeless. And it meowed so plaintively that my heart clenched into a knot."
+                "The next second, a loud, piercing whistle nearly made me jump out of my skin." +
+                "\n<color=red>Officer: “Stop! Stop right there, young man! It’s the right lane’s turn to go!”<color>" +
+                "\nRaising his baton high, the officer froze in place like a tin soldier.\n"
         };
 
         private static TextMeshProUGUI TrafficOfficer_Positive = new ()
