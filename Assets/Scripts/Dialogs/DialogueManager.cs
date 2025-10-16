@@ -13,7 +13,8 @@ namespace Dialogs
         [Header("Систменое")] [Tooltip("Ключ менеджера джиалогов для проверки")]
         public string DialogueManagerKey = string.Empty;
 
-        [Tooltip("Скорость печати текста")] public float SpeedTyping = 0.2f;
+        [Range(0.01f, 0.1f)]
+        [Tooltip("Скорость печати текста")] public float SpeedTyping = 0.1f;
 
         [Header("Диалоги персонажей")] [Tooltip("Записываем все диалоги для персонажей")] [SerializeField]
         public SerializedDictionary<string, DialogueList> characterDialogues = new();
@@ -32,6 +33,7 @@ namespace Dialogs
 
         private DialoguesDataBase dialoguesDataBase = new();
         private Coroutine myCoroutine;
+        private bool isTyping = false;
         private void Start()
         {
             choiceMenuGroup = choiceMenu.GetComponentInChildren<VerticalLayoutGroup>();
@@ -99,16 +101,18 @@ namespace Dialogs
             dialoguePanel.SetActive(true);
             dialogueText.maxVisibleCharacters = 0;
             dialogueText.text = (dialogue.TextMeshPro.text);
-            myCoroutine = StartCoroutine(TextVisible());
-            CreateButtonChoice(dialogue.AnswerСhoice);
-            BindMenu();
+            choiceMenu.gameObject.SetActive(false);
+            myCoroutine = StartCoroutine(TextVisible(dialogue.AnswerСhoice));
+            // CreateButtonChoice(dialogue.AnswerСhoice);
+            // BindMenu();
         }
 
         /// <summary>
         /// Печать текста по буквам
         /// </summary>
-        private IEnumerator TextVisible()
+        private IEnumerator TextVisible(List<DialogueAnswerChoice> choices)
         {
+            isTyping = true;
             int totalVisibleCharacters = dialogueText.text.Length;
             int counter = 0;
             float stepScroll = 1f / (totalVisibleCharacters / 90f);
@@ -127,15 +131,21 @@ namespace Dialogs
                     stepSrolled++;
                 }
 
-                if (visibleCount >= totalVisibleCharacters || Input.GetKeyDown(KeyCode.Space))
+                if (visibleCount >= totalVisibleCharacters || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
                     dialogueText.maxVisibleCharacters = totalVisibleCharacters;
                     break;
                 }
 
-                counter++;
-                yield return new WaitForSeconds(SpeedTyping);
+                // Roll dices
+                counter += Random.Range(1, 5);
+                float waitInSec = Random.Range(0.005f, SpeedTyping);
+                yield return new WaitForSeconds(waitInSec);
             }
+
+            isTyping = false;
+            CreateButtonChoice(choices);
+            BindMenu();
         }
 
         /// <summary>
