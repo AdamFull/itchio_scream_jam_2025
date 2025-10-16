@@ -13,8 +13,11 @@ namespace Dialogs
         [Header("Систменое")] [Tooltip("Ключ менеджера джиалогов для проверки")]
         public string DialogueManagerKey = string.Empty;
 
+        [Header("Typing")]
         [Range(0.01f, 0.1f)]
         [Tooltip("Скорость печати текста")] public float SpeedTyping = 0.1f;
+        public List<AudioClip> typingSounds = new List<AudioClip>();
+        public AudioSource audioSource;
 
         [Header("Диалоги персонажей")] [Tooltip("Записываем все диалоги для персонажей")] [SerializeField]
         public SerializedDictionary<string, DialogueList> characterDialogues = new();
@@ -35,14 +38,40 @@ namespace Dialogs
         
         private DialoguesDataBase dialoguesDataBase = new();
         private Coroutine myCoroutine;
-        private bool isTyping = false;
+
+        private List<AudioClip> shuffledTypingSounds = new List<AudioClip>();
+        private int currentTypingIndex = 0;
         private void Start()
         {
+            if (audioSource == null)
+            {
+                audioSource = GetComponent<AudioSource>();
+            }
+
             choiceMenuGroup = choiceMenu.GetComponentInChildren<VerticalLayoutGroup>();
             if (choiceMenuGroup == null)
             {
                 Debug.LogError("DialogueManager: choiceMenuGroup is null");
             }
+
+            ShuffleSounds();
+        }
+
+        void ShuffleSounds()
+        {
+            if (typingSounds.Count == 0)
+                return;
+
+            AudioClip lastPlayed = null;
+            if (shuffledTypingSounds.Count > 0 && currentTypingIndex > 0)
+            {
+                lastPlayed = shuffledTypingSounds[currentTypingIndex - 1];
+            }
+
+            shuffledTypingSounds = ShuffleUtility.SpotifyShuffle(typingSounds, lastPlayed);
+
+            // Reset index to start of new shuffle
+            currentTypingIndex = 0;
         }
 
         public void StartEndingDialogue(string dialogueKey)
@@ -123,7 +152,6 @@ namespace Dialogs
         /// </summary>
         private IEnumerator TextVisible(List<DialogueAnswerChoice> choices)
         {
-            isTyping = true;
             int totalVisibleCharacters = dialogueText.text.Length;
             int counter = 0;
             float stepScroll = 1f / (totalVisibleCharacters / 90f);
@@ -148,13 +176,26 @@ namespace Dialogs
                     break;
                 }
 
+                if (currentTypingIndex >= shuffledTypingSounds.Count)
+                {
+                    ShuffleSounds();
+                }
+
+                AudioClip footstepClip = shuffledTypingSounds[currentTypingIndex];
+                if (footstepClip != null)
+                {
+                    float randomVolume = Random.Range(0.1f, 0.3f);
+                    audioSource.PlayOneShot(footstepClip, randomVolume);
+                }
+
+                currentTypingIndex++;
+
                 // Roll dices
                 counter += Random.Range(1, 5);
                 float waitInSec = Random.Range(0.005f, SpeedTyping);
                 yield return new WaitForSeconds(waitInSec);
             }
 
-            isTyping = false;
             CreateButtonChoice(choices);
             BindMenu();
         }
