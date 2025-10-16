@@ -47,6 +47,9 @@ public class SceneGeneration : MonoBehaviour
     private bool endBlockSpawned = false;
     private bool isInitialized = false;
 
+    private List<GameObject> shuffledCommonBlocks = new List<GameObject>();
+    private int currentBlockIndex = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,12 +73,31 @@ public class SceneGeneration : MonoBehaviour
             nextBlockPosition += blockSpacing;
         }
 
+        ShuffleBlocks();
+
         for (int i = 0; i < blocksToGenerateAhead; i++)
         {
             GenerateNextBlock();
         }
 
         isInitialized = true;
+    }
+
+    void ShuffleBlocks()
+    {
+        if (commonBlocks.Count == 0)
+            return;
+
+        GameObject lastPlaced = null;
+        if (shuffledCommonBlocks.Count > 0 && currentBlockIndex > 0)
+        {
+            lastPlaced = shuffledCommonBlocks[currentBlockIndex - 1];
+        }
+
+        shuffledCommonBlocks = ShuffleUtility.SpotifyShuffle(commonBlocks, lastPlaced);
+
+        // Reset index to start of new shuffle
+        currentBlockIndex = 0;
     }
 
     // Update is called once per frame
@@ -190,7 +212,13 @@ public class SceneGeneration : MonoBehaviour
     GameObject GetRandomCommonBlock()
     {
         if (commonBlocks.Count == 0) return null;
-        return commonBlocks[Random.Range(0, commonBlocks.Count)];
+
+        if (currentBlockIndex >= shuffledCommonBlocks.Count)
+        {
+            ShuffleBlocks();
+        }
+
+        return shuffledCommonBlocks[currentBlockIndex++];
     }
 
     // I think that this one will be needed in future
