@@ -47,6 +47,7 @@ public class DoomLikeCharacterController : MonoBehaviour
 
     private bool blockAllInput = false;
     private bool isRotatingToTarget = false;
+    private bool isLockedOnTarget = false;
     private Quaternion targetRotation;
     private Quaternion initialRotation;
 
@@ -114,14 +115,18 @@ public class DoomLikeCharacterController : MonoBehaviour
         {
             initialRotation = cameraTransform.rotation;
             targetRotation = Quaternion.LookRotation(direction);
-            isRotatingToTarget = true;
+            isLockedOnTarget = isRotatingToTarget = true;
         }
     }
 
     public void UnlockTarget()
     {
-        isRotatingToTarget = true;
-        targetRotation = initialRotation;
+        if(isLockedOnTarget)
+        {
+            isLockedOnTarget = false;
+            isRotatingToTarget = true;
+            targetRotation = initialRotation;
+        }
     }
 
     void HandleLockOnTarget()
