@@ -25,9 +25,30 @@ namespace Dialogs
             { "TrafficOfficer_Main", TrafficOfficer_Main },
             { "TrafficOfficer_Positive", TrafficOfficer_Positive },
             { "TrafficOfficer_Negative", TrafficOfficer_Negative },
+            { "StartDialogue", StartDialogue },
+            { "EndDialogue", EndDialogue },
         };
 
+        #region SartEnd
 
+        private static TextMeshProUGUI StartDialogue = new ()
+        {
+            text = 
+                "I have to make it back on time, but the only way to do that is to cut through the cemetery…" +
+                "\nNothing bad could really happen, right? They always say it’s the living you should fear, not the dead." +
+                "\nEither way, the more I think about it, the less time I’ve got. And there’s no choice left.\n"
+        };
+        private static TextMeshProUGUI EndDialogue = new ()
+        {
+            text = 
+                "“Finally, an exit!”" +
+                "\nI paused a moment at the cemetery gates to catch my breath. I don’t know why, but I had the feeling I’d walked the edge countless times." +
+                "\nYeah… that was quite a walk — I’m never going through this cemetery again.\n"
+        };
+
+        #endregion
+        
+        
         #region ElderlyCouple
 
         private static TextMeshProUGUI ElderlyCouple_Main = new ()

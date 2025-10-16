@@ -18,6 +18,7 @@ namespace Dialogs
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log($"Старт диалога: {KeyDialogue}");
             if (other.tag == "Player" && !dialogueTriggered)
             {
                 dialogueManager.StratDialogue(KeyDialogue, dialogueInitiator);
