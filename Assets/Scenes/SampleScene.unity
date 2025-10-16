@@ -1167,13 +1167,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 704329063260849626, guid: 9d35914d778357b448e19abebd56e421,
         type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 704329063260849626, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
       propertyPath: targetDistance
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1453109884907238881, guid: 9d35914d778357b448e19abebd56e421,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.49315
+      value: -9.62
       objectReference: {fileID: 0}
     - target: {fileID: 1453109884907238881, guid: 9d35914d778357b448e19abebd56e421,
         type: 3}
