@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DialogueManagerKey: GodFather
-  SpeedTyping: 0.001
+  SpeedTyping: 0.05
   characterDialogues:
     _serializedList:
     - Key: elderly_couple
