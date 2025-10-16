@@ -2131,6 +2131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1798930539}
   - component: {fileID: 1798930540}
+  - component: {fileID: 1798930541}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -2169,6 +2170,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogueManagerKey: GodFather
   SpeedTyping: 0.05
+  typingSounds:
+  - {fileID: 8300000, guid: d457fa721566cd047a15e464fd271e78, type: 3}
+  - {fileID: 8300000, guid: 9bfe1b129175b774f91f79b408223ce1, type: 3}
+  - {fileID: 8300000, guid: e23b81a5e37670744b609fb5dc995495, type: 3}
+  - {fileID: 8300000, guid: a3207e4ffe137314a95b47d14187ef12, type: 3}
+  - {fileID: 8300000, guid: f7c05cc3b2ddce0428adb19a48dbd6bb, type: 3}
+  - {fileID: 8300000, guid: 3eaac6eb916317744b3fb1fddc4fc2a0, type: 3}
+  - {fileID: 8300000, guid: 188cc62592c9d5a4f92c9cf1c956ea03, type: 3}
+  - {fileID: 8300000, guid: 9331ffc3a3ce57a4f81af6f2a6817925, type: 3}
+  audioSource: {fileID: 0}
   characterDialogues:
     _serializedList:
     - Key: elderly_couple
@@ -2205,6 +2216,102 @@ MonoBehaviour:
   buttonChoicePrefab: {fileID: 721455883096455562, guid: dc328b7761b1fb3468d58dc6bd7a699f,
     type: 3}
   scrollRect: {fileID: 975303061}
+--- !u!82 &1798930541
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798930538}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1814711514
 GameObject:
   m_ObjectHideFlags: 0
