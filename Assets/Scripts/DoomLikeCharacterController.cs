@@ -140,7 +140,7 @@ public class DoomLikeCharacterController : MonoBehaviour
         );
 
         float angle = Quaternion.Angle(cameraTransform.rotation, targetRotation);
-        if (angle < 0.1f)
+        if (angle < 0.01f)
         {
             cameraTransform.rotation = targetRotation;
             isRotatingToTarget = false;

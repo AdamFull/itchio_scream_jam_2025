@@ -193,7 +193,7 @@ namespace Dialogs
         {
             text = 
                 "The next second, a loud, piercing whistle nearly made me jump out of my skin." +
-                "\n<color=red>Officer: “Stop! Stop right there, young man! It’s the right lane’s turn to go!”<color>" +
+                "\n<color=red>Officer: “Stop! Stop right there, young man! It’s the right lane’s turn to go!”</color>" +
                 "\nRaising his baton high, the officer froze in place like a tin soldier.\n"
         };
 
