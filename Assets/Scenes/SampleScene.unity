@@ -815,6 +815,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1006861768
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 704329063260849626, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
+      propertyPath: targetDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453109884907238881, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453109884907238881, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453109884907238881, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453109884907238881, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453109884907238881, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453109884907238881, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453109884907238881, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453109884907238881, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453109884907238881, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453109884907238881, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5396800439990393269, guid: 9d35914d778357b448e19abebd56e421,
+        type: 3}
+      propertyPath: m_Name
+      value: Stalker
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d35914d778357b448e19abebd56e421, type: 3}
 --- !u!1 &1010071111 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7034199461838637694, guid: e470ec77bb6b0b8478a157e405d52315,
@@ -1720,3 +1793,4 @@ SceneRoots:
   - {fileID: 1417089863}
   - {fileID: 928510202}
   - {fileID: 596248914}
+  - {fileID: 1006861768}
