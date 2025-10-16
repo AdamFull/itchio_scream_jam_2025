@@ -174,10 +174,12 @@ public class DoomLikeCharacterController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             rotationInput = -1f;
+            isRotatingToTarget = false;
         }
         else if (Input.GetKey(KeyCode.D))
         {
             rotationInput = 1f;
+            isRotatingToTarget = false;
         }
 
         // Apply rotation
