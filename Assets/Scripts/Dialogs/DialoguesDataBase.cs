@@ -72,7 +72,7 @@ namespace Dialogs
 
         private static TextMeshProUGUI ElderlyCouple_Negative = new ()
         {
-            text = "Old Man: “I’ve had enough of all of you!”" +
+            text = "<color=red>Old Man: “I’ve had enough of all of you!”</color>" +
                    "\n\nIn the next second, the muddy pitchfork went straight through the old woman’s stomach as if through butter. And before I could even gasp — through mine as well. The furious face of the old man, driven beyond reason, was the last thing I saw before everything went dark.\n"
         };
 

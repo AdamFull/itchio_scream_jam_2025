@@ -9176,12 +9176,12 @@ PrefabInstance:
     - target: {fileID: 1408161302979014863, guid: 3e36fc3459eec184fbeebbe0591486ee,
         type: 3}
       propertyPath: volumeRange
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1408161302979014863, guid: 3e36fc3459eec184fbeebbe0591486ee,
         type: 3}
       propertyPath: triggerChance
-      value: 0.9
+      value: 0.926
       objectReference: {fileID: 0}
     - target: {fileID: 1408161302979014863, guid: 3e36fc3459eec184fbeebbe0591486ee,
         type: 3}
