@@ -11,6 +11,7 @@ public class TutorialExecutor : MonoBehaviour
 
     private CanvasGroup canvasGroup;
     private Coroutine fadeCoroutine;
+    private bool isAnyKeyPressed = false;
 
     void Awake()
     {
@@ -27,6 +28,19 @@ public class TutorialExecutor : MonoBehaviour
         if (hideOnStart)
         {
             StartCoroutine(HideAfterDelay());
+        }
+    }
+
+    private void Update()
+    {
+        if(!isAnyKeyPressed)
+        {
+            if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.F) ||
+                Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                isAnyKeyPressed = true;
+                StartCoroutine(HideAfterDelay());
+            }
         }
     }
 
