@@ -274,7 +274,7 @@ public class DoomLikeCharacterController : MonoBehaviour
             ShuffleFootsteps();
         }
 
-        AudioClip footstepClip = footstepSounds[currentFootstepIndex];
+        AudioClip footstepClip = shuffledFootsteps[currentFootstepIndex];
 
         if (footstepClip != null)
         {
